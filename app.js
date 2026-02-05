@@ -12,7 +12,27 @@ function addTaskFromInput() {
 
 // Étudiant 1 : Implémenter cette fonction
 function addTask(text) {
-    // TODO: Votre code ici
+    // Validation
+    if (!text || text.trim() === '') {
+        alert('❌ La tâche ne peut pas être vide');
+        return;
+    }
+
+    // Créer tâche
+    const task = {
+        id: Date.now(),
+        text: text.trim(),
+        completed: false,
+        createdAt: new Date().toISOString()
+    };
+
+    // Ajouter au tableau
+    todos.push(task);
+    console.log('✅ Tâche ajoutée:', task);
+
+    // Rafraîchir affichage
+    displayTasks();
+    updateStats();
 }
 
 // Étudiant 2 : Implémenter cette fonction
